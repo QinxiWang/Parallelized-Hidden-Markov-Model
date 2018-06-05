@@ -2,9 +2,7 @@
 
 Parallelizing the HMM Baum-Welch algorithm using openMP
 
-The data we used is not included in this repo. We obtained our dataset from the KDD Cup 2010 Educational Data Mining Challenge[3]. The goal of the challenge was to predict student performance on particular skills based on their previous performance. The dataset contains 3310 students and 1378 skills. The data is formatted into 4 columns and 8.9 million lines where each line is a particular step in the solving process of a problem for a student. The first column contains a boolean 1 or 2 that determines if the student performed a step in the solving process correctly. The second column is a string that identifies a specific student. The third column is a unique identifier for a particular problem. The last column is an identifier for a particular step in solving that problem. Each step in a problem corresponds to a skill for the student.     
-
-To run the algorithm, obtain the data first and run the script.sh file. We created the -k option to change the number of threads.
+The data we used is not included in this repo. We obtained our dataset from the KDD Cup 2010 Educational Data Mining Challenge. The dataset contains 3310 students and 1378 skills. To run the algorithm, obtain the data first and run the script.sh file. We created the -k option to change the number of threads.
 
 Challenge: the inherent dependencies between states in the hidden markov model - each state depends on the previous state, it impose technical challenge on parallelizing parts of the graph model as its fitted in a sequential fashion. We would lose model precision if we spread the model states over separate threads. However, we observed that the computation of transition and emission matrices between each state is independent, as the entries in the individual columns are independent of each other. Thus we can divide the computation work for calculating the individual entries in the matrices into multiple threads for better speedup performance. 
 
