@@ -1,6 +1,6 @@
 # Parallelized-Hidden-Markov-Model
 
-Parallelizing the HMM Baum-Welch algorithm using openMP
+## Parallelizing the HMM Baum-Welch algorithm using openMP.
 
 The data we used is not included in this repo. We obtained our dataset from the KDD Cup 2010 Educational Data Mining Challenge. The dataset contains 3310 students and 1378 skills. To run the algorithm, obtain the data first and run the script.sh file. We created the -k option to change the number of threads.
 
